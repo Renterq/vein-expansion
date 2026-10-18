@@ -7,3 +7,5 @@ build/
 versions/*/libs/*.jar
 *.log
 builds/
+release/
+source/
