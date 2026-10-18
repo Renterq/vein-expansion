@@ -1,0 +1,68 @@
+// Shared build logic of every NeoForge module under versions/.
+// A module's gradle.properties provides: minecraft_version, minecraft_version_range,
+// neo_version, neo_version_range, java_version, veinminer_jar, compat (folder under compat/).
+
+version = "${mod_version}+${minecraft_version}"
+group = 'dev.renterq'
+
+base {
+    archivesName = "${mod_id}-neoforge"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
+
+repositories {
+    mavenCentral()
+}
+
+// Code and assets shared by every version live in common/; per-version differences in compat/.
+sourceSets.main.java.srcDir "${rootDir}/common/src/main/java"
+sourceSets.main.java.srcDir "${rootDir}/compat/${compat}/java"
+sourceSets.main.resources.srcDir "${rootDir}/common/src/main/resources"
+
+neoForge {
+    version = neo_version
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    // Veinminer ships Kotlin classes, so the stdlib has to be visible to javac.
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
+    compileOnly files("libs/${veinminer_jar}")
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata

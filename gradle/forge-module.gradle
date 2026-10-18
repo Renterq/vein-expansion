@@ -1,0 +1,59 @@
+// Build logic of the Forge 1.20.1 module (the same jar also loads on NeoForge 1.20.1).
+// gradle.properties provides: minecraft_version, minecraft_version_range, forge_version,
+// forge_version_range, java_version.
+
+version = "${mod_version}+${minecraft_version}"
+group = 'dev.renterq'
+
+base {
+    archivesName = "${mod_id}-forge"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets.main.java.srcDir "${rootDir}/common/src/main/java"
+sourceSets.main.java.srcDir "${rootDir}/compat/1.20.1/java"
+sourceSets.main.resources.srcDir "${rootDir}/common/src/main/resources"
+
+legacyForge {
+    version = "${minecraft_version}-${forge_version}"
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            forge_version_range    : forge_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
+}
+sourceSets.main.resources.srcDir generateModMetadata

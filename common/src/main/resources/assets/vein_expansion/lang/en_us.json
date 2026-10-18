@@ -1,0 +1,37 @@
+{
+	"vein_expansion.config.title": "Vein Expansion Settings",
+	"vein_expansion.config.tab.general": "General",
+	"vein_expansion.config.tab.blocks": "Blocks",
+	"vein_expansion.config.tab.mods": "Mods",
+	"vein_expansion.config.reset": "Reset to default",
+
+	"vein_expansion.option.enabled": "Vein Expansion",
+	"vein_expansion.option.andesite": "Andesite",
+	"vein_expansion.option.stones": "All stones",
+	"vein_expansion.option.logs": "All logs",
+	"vein_expansion.option.tool": "Tool",
+	"vein_expansion.option.pick_blocks": "Pick blocks...",
+	"vein_expansion.option.entry": "Block id or tag",
+	"vein_expansion.option.entry_hint": "minecraft:dirt or #minecraft:logs",
+	"vein_expansion.option.add": "+ Add",
+	"vein_expansion.option.remove_hint": "Click to remove",
+	"vein_expansion.option.all_mods": "All mods",
+	"vein_expansion.option.exclude_machines": "Skip chests/machines",
+	"vein_expansion.option.pick_mods": "Pick mods...",
+
+	"vein_expansion.hint.general": "Cooldown, max blocks, sneaking and the rest are Veinminer's own settings.",
+	"vein_expansion.hint.blocks": "Your blocks veinmine together. Add an id or #tag, or pick from the list of every block in the game.",
+	"vein_expansion.hint.mods": "Every block of a mod becomes its own group. Reload the world (/reload) after changing mods.",
+
+	"vein_expansion.tool.pickaxe": "Pickaxe",
+	"vein_expansion.tool.axe": "Axe",
+	"vein_expansion.tool.shovel": "Shovel",
+	"vein_expansion.tool.hoe": "Hoe",
+	"vein_expansion.tool.any": "Any tool",
+
+	"vein_expansion.picker.search": "Search...",
+	"vein_expansion.picker.blocks_title": "Pick Blocks",
+	"vein_expansion.picker.blocks_count": "%s blocks added",
+	"vein_expansion.picker.mods_title": "Pick Mods",
+	"vein_expansion.picker.mods_count": "%s mods selected"
+}

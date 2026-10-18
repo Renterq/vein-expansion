@@ -1,0 +1,37 @@
+{
+	"vein_expansion.config.title": "Vein Expansion Ayarları",
+	"vein_expansion.config.tab.general": "Genel",
+	"vein_expansion.config.tab.blocks": "Bloklar",
+	"vein_expansion.config.tab.mods": "Modlar",
+	"vein_expansion.config.reset": "Varsayılana dön",
+
+	"vein_expansion.option.enabled": "Vein Expansion",
+	"vein_expansion.option.andesite": "Andesite",
+	"vein_expansion.option.stones": "Tüm taşlar",
+	"vein_expansion.option.logs": "Tüm odunlar",
+	"vein_expansion.option.tool": "Alet",
+	"vein_expansion.option.pick_blocks": "Blok seç...",
+	"vein_expansion.option.entry": "Blok id veya tag",
+	"vein_expansion.option.entry_hint": "minecraft:dirt veya #minecraft:logs",
+	"vein_expansion.option.add": "+ Ekle",
+	"vein_expansion.option.remove_hint": "Silmek için tıkla",
+	"vein_expansion.option.all_mods": "Tüm modlar",
+	"vein_expansion.option.exclude_machines": "Sandık/makine hariç",
+	"vein_expansion.option.pick_mods": "Mod seç...",
+
+	"vein_expansion.hint.general": "Bekleme süresi, max blok, eğilme vb. Veinminer'ın kendi ayarları.",
+	"vein_expansion.hint.blocks": "Eklediğin bloklar birlikte kırılır. Id veya #tag yaz, ya da oyundaki tüm bloklar listesinden seç.",
+	"vein_expansion.hint.mods": "Bir modun tüm blokları kendi grubu olur. Mod değiştirince dünyayı yenile (/reload).",
+
+	"vein_expansion.tool.pickaxe": "Kazma",
+	"vein_expansion.tool.axe": "Balta",
+	"vein_expansion.tool.shovel": "Kürek",
+	"vein_expansion.tool.hoe": "Çapa",
+	"vein_expansion.tool.any": "Herhangi bir alet",
+
+	"vein_expansion.picker.search": "Ara...",
+	"vein_expansion.picker.blocks_title": "Blok Seç",
+	"vein_expansion.picker.blocks_count": "%s blok eklendi",
+	"vein_expansion.picker.mods_title": "Mod Seç",
+	"vein_expansion.picker.mods_count": "%s mod seçildi"
+}
